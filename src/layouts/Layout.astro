@@ -3,6 +3,11 @@ import { load } from "js-yaml";
 import { readFileSync } from "fs";
 import { SEO } from "astro-seo";
 import { type IConfig } from "../types/config";
+import Header from "../components/Header.astro";
+
+// css
+import "../assets/styles/reset.css";
+import "../assets/styles/global.scss";
 
 const config = load(readFileSync("config.yml", "utf8")) as IConfig;
 ---
@@ -24,6 +29,9 @@ const config = load(readFileSync("config.yml", "utf8")) as IConfig;
     />
   </head>
   <body>
-    <slot />
-  </body><style is:global></style>
+    <Header />
+    <main>
+      <slot />
+    </main>
+  </body>
 </html>
