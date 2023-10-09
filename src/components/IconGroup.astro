@@ -1,0 +1,20 @@
+---
+import { Icon } from "astro-icon";
+import { type IconProps } from "../types/icon-props";
+
+const { icons } = Astro.props as { icons: IconProps[] };
+---
+
+<div class="flex justify-center space-x-2">
+  {
+    icons.map((icon: IconProps) => (
+      <a href={icon.link} target="_blank">
+        <Icon
+          class:list={[icon.width, icon.height, icon.color]}
+          pack="mdi"
+          name={icon.name}
+        />
+      </a>
+    ))
+  }
+</div>

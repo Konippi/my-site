@@ -10,6 +10,7 @@ import "../assets/styles/reset.css";
 import "../assets/styles/global.scss";
 
 const config = load(readFileSync("config.yml", "utf8")) as IConfig;
+const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -29,7 +30,7 @@ const config = load(readFileSync("config.yml", "utf8")) as IConfig;
     />
   </head>
   <body>
-    <Header />
+    <Header title={title} />
     <main>
       <slot />
     </main>

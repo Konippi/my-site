@@ -1,27 +1,55 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
+import IconGroup from "../components/IconGroup.astro";
 
 // images
 import me from "../assets/images/me.png";
+import type { IconProps } from "../types/icon-props";
+
+const icons: IconProps[] = [
+  {
+    name: "linkedin",
+    width: "w-10",
+    height: "h-10",
+    color: "text-blue-600",
+    link: "https://www.linkedin.com/in/kyosuke-konishi",
+  },
+  {
+    name: "twitter",
+    width: "w-10",
+    height: "h-10",
+    color: "text-blue-400",
+    link: "https://twitter.com/_konippi_",
+  },
+  {
+    name: "github",
+    width: "w-10",
+    height: "h-10",
+    color: "text-grey-900",
+    link: "https://github.com/Konippi",
+  },
+];
 ---
 
-<Layout>
+<Layout title="Home">
   <div id="main-container">
-    <div id="avatar-container" class="w-40 p-3">
+    <div id="avatar-container" class="w-64 p-3">
       <Image
         src={me}
         alt="me"
         class="rounded-full ring ring-offset-4 ring-offset-slate-400 ring-slate-400"
       />
     </div>
+    <h1 class="text-center mb-5 text-3xl font-bold">Konippi</h1>
+    <IconGroup icons={icons} />
   </div>
 </Layout>
 
 <style>
-  #avatar-container {
+  #main-container {
     position: absolute;
-    top: 30%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
