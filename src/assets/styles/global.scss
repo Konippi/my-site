@@ -1,5 +1,13 @@
-$bg-color: #393646;
+$main-text-color: #333333;
 
-main {
-  background-color: $bg-color;
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: $main-text-color;
 }
