@@ -4,4 +4,5 @@ export interface IconProps {
   height: string;
   color: string;
   link: string;
+  label: string;
 }
