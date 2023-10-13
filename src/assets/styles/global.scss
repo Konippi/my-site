@@ -7,7 +7,9 @@ $main-text-color: #404040;
   font-style: normal;
 }
 
-body {
+html {
+  height: 100vh;
   font-family: "Poppins", sans-serif;
   color: $main-text-color;
+  background-color: #fbfbfb !important;
 }

@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import IconGroup from "../components/IconGroup.astro";
+import CodeEditor from "../components/CodeEditor.astro";
 
 // images
 import me from "../assets/images/me.png";
@@ -37,7 +38,7 @@ const icons: IconProps[] = [
 
 <Layout title="Home">
   <div id="main-container" class="grid grid-cols-5">
-    <div class="col-span-2 m-auto flex flex-col items-center">
+    <div class="col-span-2 flex flex-col items-center">
       <div id="avatar-container" class="w-64 p-3">
         <Image
           src={me}
@@ -48,43 +49,16 @@ const icons: IconProps[] = [
       <h1 class="text-center mb-5 text-3xl font-bold">Kyosuke Konishi</h1>
       <IconGroup icons={icons} />
     </div>
-    <div class="mockup-code col-span-3 animated-code">
-      <pre><code>Loading Me: [=========================================================>] 100% | Complete!</code></pre>
-      <br />
-      <pre data-prefix="$"><code>echo $MY_AGE</code></pre>
-      <pre data-prefix=">" class="text-error"><code>22 👨‍💻</code></pre>
-      <br />
-      <pre data-prefix="$"><code>echo $MY_ADDRESS</code></pre>
-      <pre data-prefix=">" class="text-pink-400"><code>Japan 🇯🇵</code></pre>
-      <pre data-prefix=">" class="text-pink-400"><code>Kyoto 🍵 </code></pre>
-      <br />
-      <pre data-prefix="$"><code>echo $MY_OCCUPATION</code></pre>
-      <pre
-        data-prefix=">"
-        class="text-success"><code>Software Engineer 💻</code></pre>
-      <pre
-        data-prefix="!"
-        class="text-warning"><code>still a student... 🎓</code></pre>
-      <br />
-      <pre data-prefix="$"><code>echo $MY_MESSAGE</code></pre>
-      <pre data-prefix=">" class="text-blue-400"><code>👋 Hi there!</code></pre>
-      <pre
-        data-prefix=">"
-        class="text-blue-400"><code>🌱 I'm a 1st Year Master's Student.</code></pre>
-      <pre
-        data-prefix=">"
-        class="text-blue-400"><code>👨‍💻 I Have Had Internships With More Than 10 Tech Companies.</code></pre>
-      <pre
-        data-prefix=">"
-        class="text-blue-400"><code>📬 Feel Free to Contact Me.</code></pre>
+    <div class="col-span-3">
+      <CodeEditor />
     </div>
   </div>
-</Layout>
 
-<style>
-  @media screen and (max-width: 800px) {
-    #main-container {
-      grid-template-columns: 1fr;
+  <style>
+    @media screen and (max-width: 800px) {
+      #main-container {
+        grid-template-columns: 1fr;
+      }
     }
-  }
-</style>
+  </style>
+</Layout>
