@@ -1,24 +1,18 @@
 name: lighthouse
 
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: "0 * * * *"
 
 jobs:
   lighthouse-ci:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js 20.x
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-      - name: Install and Build
-        run: |
-          npm install
-          npm run build
       - name: Run Lighthouse CI
-        run: |
-          npm install -g @lhci/cli@0.12.x
-          lhci autorun
+        uses: treosh/lighthouse-ci-action@v9
+        with:
+          urls: https://example.com
+          configPath: ./lighthouse/.lighthouserc.json
+          temporaryPublicStorage: true
+          uploadArtifacts: true
