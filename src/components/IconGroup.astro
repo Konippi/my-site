@@ -9,7 +9,7 @@ const { icons } = Astro.props as { icons: IconProps[] };
   {
     icons.map((icon: IconProps) => (
       <a
-        class="btn flex justify-start rounded-3xl"
+        class="btn flex justify-start items-center rounded-3xl"
         href={icon.link}
         target="_blank"
       >
@@ -18,7 +18,9 @@ const { icons } = Astro.props as { icons: IconProps[] };
           pack="mdi"
           name={icon.name}
         />
-        <div class="flex items-center normal-case">{icon.label}</div>
+        <div class="w-28 flex items-center justify-center normal-case">
+          {icon.label}
+        </div>
       </a>
     ))
   }
