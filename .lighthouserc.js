@@ -1,4 +1,6 @@
-require("dotenv").config({ path: `.env.${import.meta.env.MODE}` });
+import dotenv from "dotenv";
+
+dotenv.config({ path: `.env.${import.meta.env.MODE}` });
 
 module.exports = {
   ci: {
@@ -12,7 +14,7 @@ module.exports = {
       // upload options here
     },
     server: {
-      port: Number(process.env.PORT),
+      port: process.env.PORT,
     },
     wizard: {
       // wizard options here
